@@ -1,10 +1,10 @@
-from kivy.lang import Builder
 from kivymd.app import MDApp
+from kivy.lang import Builder
 
 class RockPaperScissorsApp(MDApp):
     def build(self):
-        self.theme_cls.theme_style = "Light"  # Светлая тема
-        self.theme_cls.primary_palette = "Red"  # Палитра "Fuchsia"
+        self.theme_cls.theme_style = "Dark"  #
+        self.theme_cls.primary_palette = "Fuchsia"  # Палитра "Fuchsia"
         self.players_choices = [None, None, None]  # Храним выбор игроков
         self.current_player = 0  # Текущий игрок, который делает выбор
         return Builder.load_file('ui.kv')

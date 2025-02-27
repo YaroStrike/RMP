@@ -1,37 +1,53 @@
-BoxLayout:
-    orientation: 'vertical'
-    padding: 10
-    spacing: 10
+MDScreenManager:
+    md_bg_color:app.theme_cls.backgroundColor
 
-    # Горизонтальный контейнер для кнопок
-    BoxLayout:
-        orientation: 'horizontal'
-        spacing: 10
-        size_hint_y: None
-        height: 50  # Фиксированная высота для кнопок
+    MDScreen:
+        name: "Game"
 
-        MDButton:
-            text: "Камень"
-            on_press: app.set_choice("Камень")
+        MDBoxLayout:
+            orientation: 'vertical'
+            padding: 10
+            spacing: 10
 
-        MDButton:
-            text: "Ножницы"
-            on_press: app.set_choice("Ножницы")
+            # Горизонтальный контейнер для кнопок
+            MDBoxLayout:
+                orientation: 'horizontal'
+                spacing: 50
+                size_hint_y: None
+                pos_hint:{'center_x':.5,'center_y':.5}
+                height: 50  # Фиксированная высота для кнопок
 
-        MDButton:
-            text: "Бумага"
-            on_press: app.set_choice("Бумага")
+                MDButton:
+                    text: "Камень"
+                    on_press: app.set_choice("Камень")
+                    MDButtonIcon:
+                        icon:"diamond-stone"
+                    MDButtonText:
+                        text:"Камень"
 
-    # Метка результата
-    Label:
-        id: result_label
-        text: "Первый игрок выбирает...\nВторой игрок выбирает...\nТретий игрок выбирает..."
-        size_hint_y: None
-        height: 100  # Увеличиваем высоту, чтобы вместить несколько строк
+                MDButton:
+                    text: "Ножницы"
+                    on_press: app.set_choice("Ножницы")
+                    MDButtonIcon:
+                        icon:"content-cut"
 
-    # Кнопка "Результат"
-    MDButton:
-        text: "Результат"
-        on_press: app.show_result()
-        size_hint_y: None
-        height: 50  # Фиксированная высота для кнопки
+                MDButton:
+                    text: "Бумага"
+                    on_press: app.set_choice("Бумага")
+                    MDButtonIcon:
+                        icon:"note-multiple"
+
+            # Метка результата
+            Label:
+                id: result_label
+                text: "Первый игрок выбирает...\nВторой игрок выбирает...\nТретий игрок выбирает..."
+                size_hint_y: None
+                height: 100  # Увеличиваем высоту, чтобы вместить несколько строк
+
+            # Кнопка "Результат"
+            MDButton:
+                on_press: app.show_result()
+                size_hint_y: None
+                height: 50  # Фиксированная высота для кнопки
+                MDButtonText:
+                    text:"Результат"
