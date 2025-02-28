@@ -1,0 +1,37 @@
+BoxLayout:
+    orientation: 'vertical'
+    padding: 10
+    spacing: 10
+
+    # Горизонтальный контейнер для кнопок
+    BoxLayout:
+        orientation: 'horizontal'
+        spacing: 10
+        size_hint_y: None
+        height: 50  # Фиксированная высота для кнопок
+
+        MDButton:
+            text: "Камень"
+            on_press: app.set_choice("Камень")
+
+        MDButton:
+            text: "Ножницы"
+            on_press: app.set_choice("Ножницы")
+
+        MDButton:
+            text: "Бумага"
+            on_press: app.set_choice("Бумага")
+
+    # Метка результата
+    Label:
+        id: result_label
+        text: "Первый игрок выбирает...\nВторой игрок выбирает...\nТретий игрок выбирает..."
+        size_hint_y: None
+        height: 100  # Увеличиваем высоту, чтобы вместить несколько строк
+
+    # Кнопка "Результат"
+    MDButton:
+        text: "Результат"
+        on_press: app.show_result()
+        size_hint_y: None
+        height: 50  # Фиксированная высота для кнопки
